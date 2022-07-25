@@ -1,0 +1,82 @@
+{% load static  %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+header{
+    background-image: linear-gradient(to right , #4568dc,#b06ab3);
+    width: 100%;
+    height: 150px;
+    position: fixed;
+    z-index: 1;
+}
+.logo{
+    margin: 20px;
+}
+.back{
+    padding-top: 200px;
+    width: 50px;
+}
+button{
+    background-image: linear-gradient(to right , #4568dc,#b06ab3);
+    color: white;
+    border: none;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+}
+form,h5{
+    text-align: center;
+}
+input{
+    width: 300px;
+    height: 40px;
+}
+.icon{
+    margin-right: 10px;
+}
+i{
+    color: white;
+}
+</style>
+</head>
+<body>
+<header>
+    <img src="{% static 'Images/Group 1.png' %}" alt="logo" class="logo"> 
+</header> 
+<a href="{% url 'login_option' %}"><img src="{% static 'Images/arrow_back_black_24dp.svg' %}" alt="back" class="back"></a>
+<div class="login">
+    <h5 class="center ">Log in With Savings Account</h5>
+<form action="{% url 'dashboardSavings' %}" method="POST">
+    {% csrf_token %}
+    <img src="{% static 'Images/portrait_black_24dp.svg' %}" alt="" class="icon">{{form.nameonpassbook}}<br><br>
+    <img src="{% static 'Images/cake_black_24dp.svg' %}" alt="" class="icon">{{form.birthdate}}<br><br>
+    <img src="{% static 'Images/portrait_black_24dp.svg' %}" alt="" class="icon">{{form.accnumber}}<br><br>
+    <img src="{% static 'Images/mobile_friendly_black_24dp.svg' %}" alt="" class="icon">{{form.mobnumber}}<br><br>
+    <button><i class="fas fa-sign-in-alt"></i>   Log-in</button>
+<!--
+<img src="{% static 'Images/portrait_black_24dp.svg' %}" alt="" class="icon"><input type="text" name="name"  placeholder="Your name in Passbook"><br><br>
+<img src="{% static 'Images/cake_black_24dp.svg' %}" alt="" class="icon"><input type="text" name="DOB" placeholder="Date of Birth" onfocus="(this.type='date')"><br><br>
+<img src="{% static 'Images/portrait_black_24dp.svg' %}" alt="" class="icon"><input type="text" name="Acc_num" placeholder="Your Account Number"><br><br>
+<img src="{% static 'Images/mobile_friendly_black_24dp.svg' %}" alt="" class="icon"><input type="tel"name="phone_num" pattern="[0-9]{10}" placeholder="Mobile number"><br><br>
+<button>Log-in</button>
+//-->
+</form>
+<center>
+Or <br>
+<button><i class="fas fa-sign-in-alt"></i> Create account in our Bank</button>
+</center>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

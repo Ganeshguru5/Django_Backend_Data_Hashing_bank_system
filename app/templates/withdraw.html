@@ -1,0 +1,197 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer to friend</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+<style>
+#back{
+    border: none;
+    width: 80px;
+    height: 30px;
+    color: white;
+    font-family: Montserrat;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+}
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+.left{
+    display: flex;
+    flex-direction: row;
+}
+.right{
+    display: flex;
+    flex-direction: row;
+}
+#ele{
+    margin: 20px;
+    font-family: Montserrat;
+}
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+#ele1{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-family: Montserrat;
+}
+input{
+    width: 400px;
+    height: 40px;
+}
+#send{
+    background-color: black;
+    width: 200px;
+    height: 30px;
+    font-family: Montserrat;
+    font-size: 14px;
+    color: white;
+    border: none;
+}
+.main{
+    text-align: center;
+    background-color:white;
+    width: 600px;
+    height: 300px;
+    margin: auto;
+    padding: 50px;
+    border-radius: 20px;
+    margin-top: 120px;
+}
+.container{
+    width: 60%;
+    margin: auto;
+    margin-right: 330px;
+}
+.progressbar{
+    counter-reset: step;
+}
+.progressbar li{
+    list-style-type: none;
+    float: left;
+    width: 33.33%;
+    position: relative;
+    font-family: Montserrat;
+    font-size: 17px;
+    text-align: center;
+}
+.progressbar li:before{
+    content: counter(step);
+    counter-increment: step;
+    width: 30px;
+    height:30px;
+    border:1px solid #ddd;
+    display: block;
+    text-align: center;
+    margin: 0 auto 10px auto;
+    border-radius: 50%;
+    line-height: 30px;
+    background-color: white;
+    
+}
+.progressbar li:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    top:15px;
+    left: -50%;
+    z-index: -1;
+}
+.progressbar li:first-child:after{
+    content: none;
+}
+.progressbar li.active{
+    color: green;
+}
+.progressbar li:before{
+    border-color: green;
+}
+.progressbar li.active + li:after{
+    background-color: green;
+}
+input[password]{
+    font-size: 23px;
+}
+
+</style>
+<script>
+function dateo() {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth()+1;
+    var day = date.getDate();
+    if (month<10){
+        month = "0"+month
+    }
+        
+    var today =(day +"-"+month+"-"+year)
+        
+    document.getElementById("Date").setAttribute("value",today)
+    document.getElementById("Date2").setAttribute("value",today)
+        
+    console.log(today)
+}
+</script>
+<body style="background-color: #f2f3f7;" onload=dateo()>
+    <div class="nav-bar">
+        <div class="left">
+            <img  src="{% static 'Images/Logo-removebg-preview.png' %}" alt="" width="60px">
+            <p id="ele" style="color: #9597a9;">My Account</p>
+            <a href="#" style="text-decoration: none;"><p id="ele" style="color: #9597a9;">Transactions</p></a>
+            <p id="ele" style="color: #9597a9;">Cards</p>
+            <p id="ele" style="color: #9597a9;">Offers</p>
+            <p id="ele" style="color: #9597a9;">Investments</p>
+        </div>
+        <div class="right">
+            <ion-icon name="settings-outline" id="ele1"></ion-icon>
+            <ion-icon name="mail-unread-outline" id="ele1"></ion-icon>
+            <ion-icon name="notifications-outline" id="ele1"></ion-icon>
+            <p id="ele1">Ganeshguru</p>
+            <ion-icon name="power-outline" id="ele1"></ion-icon>
+        </div>
+    </div>
+    
+   <button style="background-color: #9496a9;" id="back">Back</button> 
+    <div class="container">
+        <ul class="progressbar">
+            <li class="active">Enter payment details</li>
+            
+            <li>Payment successfull</li>
+            <li>Download receipt</li>
+        </ul>
+    </div>
+    <div >
+        <div class="main">
+            <div>
+                <p style="font-family: Montserrat;">Enter details to sent payment :</p>
+                <br>
+                <form action="{% url 'transfercash' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="accnumber" value="" id="" style="font-family:Montserrat ;" placeholder="Enter the Account number "><br><br>
+                <input type="text" name="amount" id="" style="font-family:Montserrat ;" placeholder="Enter the amount"><br><br>
+                <input  type="text" id="Date2" name="date" value=""   id="" required>
+                <input style="display: none;" type="text" value="No fee" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly placeholder="Enter the amount" name="fee">
+                <input style="display: none;" type="text" value="{{current_user.accnumber}}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly placeholder="Enter the amount" name="accnumber">
+                <button style="font-family:Montserrat;font-size:13px;border-radius:5px" id="send">Sent Money</button>
+                </form>
+            </div>
+        </div>
+    </div>
+   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

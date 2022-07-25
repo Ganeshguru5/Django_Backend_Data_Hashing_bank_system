@@ -1,0 +1,296 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<style>
+header{
+    background-image: linear-gradient(to right , black,grey);
+    width: 100%;
+    height: 150px;
+    position: fixed;
+    z-index: 1;
+}
+.back{
+    padding-top: 200px;
+    width: 50px;
+    position: fixed;
+}
+.logo{
+    margin: 20px;
+}
+footer{
+    background-image: linear-gradient(to right,black,gray);
+    height:150px;
+    width: 100%;
+    height: 180px;
+    display: flex;  
+    flex-direction: row;
+}
+.foot-1{
+    padding-top: 50px;
+    padding-left: 30px;
+    color: white;
+    text-decoration: none;
+}
+.menu{
+    width: 50px;
+    margin-left: 10px;
+    
+}
+.sidenav{
+    width: 0;
+    height: 100%;
+    background-image: linear-gradient(to right , black,grey);
+    z-index: 2;
+    overflow-x: hidden;
+    position: fixed;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+.sidenav a{
+    display: block;
+    padding: 8px 8px 14px 70px;
+    color: white;
+    text-decoration: none;
+    transition: 0.1s;
+}
+.sidenav .nav:hover{
+    background-color:grey;
+    
+}
+.sidenav .closebtn{
+    position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.sidenav a .nav-icon{
+    padding-right: 10px;
+}
+.profilepic{
+    width: 100px;
+    height: 100px;
+    border: solid white;
+    border-radius: 50%;
+}
+.slideimg{
+    width: 500px;
+    height: 300px;
+}
+
+.slideshow-container{
+    padding-top: 140px;
+}
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.flex-1{
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    border-top: 3px grey solid;
+    border-left: 3px grey solid;
+    border-radius: 10px;
+}
+.ola{
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+.redbus{
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+.irtc{
+    width: 80px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.HT{
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+.yolobus{
+    width: 100px;
+    padding-bottom: 10px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    padding-left: 50px;
+}
+@media only screen and (max-width: 800px) {
+    .flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 50px;
+}
+    footer{
+    background-image: linear-gradient(to right,black,gray);
+    height:150px;
+    width: 100%;
+    height: 100%;
+    display: flex;  
+    flex-direction: column;
+}
+.slideimg{
+    width: 270px;
+    height: 200px;
+    position: relative;
+    right: 20px;
+}
+.flex-1{
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    border-top: 3px grey solid;
+    border-left: 3px grey solid;
+    border-radius: 10px;
+}
+a{
+    width: 300px;
+}
+}
+</style>
+<script>
+function openNav(){
+    document.getElementById("mySidenav").style.width="300px";
+    
+}
+function closeNav(){
+    document.getElementById("mySidenav").style.width="0px";
+}
+function first(){
+    document.getElementById("slideimage").src="{% static 'Images/ola_offer.jpg' %}";
+    document.getElementById("linkimg").href="https://blog.olacabs.com/gear-up-for-amazing-deals-with-ola-weekend-offers/";
+}
+function second(){
+    document.getElementById("slideimage").src="{% static 'Images/redbus_offer(1).jpg' %}";
+    document.getElementById("linkimg").href="https://www.shoppirate.in/blog/redbus-referral-code-invite-your-friends-for-a-bus-ride/";
+}
+function third(){
+    document.getElementById("slideimage").src="{% static 'Images/irtc_offer.jpg' %}";
+    document.getElementById("linkimg").href="https://www.flashsaletricks.com/phonepe-train-ticket-booking-offer/";
+}
+function four(){
+    document.getElementById("slideimage").src="{% static 'Images/oyo_offer.jpg' %}";
+    document.getElementById("linkimg").href="https://www.oyorooms.com/coupons/";
+}
+setInterval(first,2000);
+setInterval(second,4000);
+setInterval(third,6000);
+setInterval(four,8000);
+</script>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(1)" class="closebtn" onclick="closeNav()"><img src="{% static 'Images/close_white_24dp.svg' %}" alt=""></a>
+        <a href="#"><img src="{{ current_user.photo.url }} " alt="profile-pic" class="profilepic"></a>
+        <a href="#" class="nav"><img src="{% static 'Images/paid_white_24dp.svg' %}" alt="" class="nav-icon">Deposits</a>
+        <a href="#" class="nav"><img src="{% static 'Images/loan.svg' %}" alt="" class="nav-icon">Loans</a>
+        <a href="#" class="nav"><img src="{% static 'Images/card.svg' %}" alt="" class="nav-icon">Cards</a>
+        <a href="#" class="nav"><img src="{% static 'Images/pay.svg' %}" alt="" class="nav-icon">GZ pay</a>
+        <a href="#" class="nav"><img src="{% static 'Images/phone_in_talk_white_24dp.svg' %}" alt="" class="nav-icon">Call us</a>
+        <a href="{% url 'Logout' %}" class="nav"><img src="{% static 'Images/logout_white_24dp.svg' %}" alt="" class="nav-icon">Log-out</a>
+    </div>
+    <header>
+        <span onclick="openNav()"><img src="{% static 'Images/menu_white_24dp.svg' %}" class="menu"></span>
+        <img src="{% static 'Images/Group 1.png' %}" alt="logo" class="logo" id="logo"> 
+    </header> 
+<a href="{% url 'backDashboard' %}"><img src="{% static 'Images/arrow_back_black_24dp.svg' %}" alt="back" class="back"></a>
+<center>
+<div class="slideshow-container">
+    <div class="mySlides">
+        
+        <a href="https://www.oyorooms.com/coupons/" target="_blank" id="linkimg"><img src="{% static 'Images/oyo_offer.jpg' %}" class="slideimg" id="slideimage"></a>
+        
+    </div>
+</div>
+</center>
+<center>
+<div class="flex-container">
+<a href="">
+    <div class="flex-1">
+        <img src="{% static 'Images/ola.png' %}" alt="" class="ola">
+        <h6>30% off for all products</h6>
+    </div>
+</a>
+<a href="">
+    <div class="flex-1">
+        <img src="{% static 'Images/oyo.png' %}" alt="" class="oyo">
+        <h6>10% discount</h6>
+    </div>
+</a>
+<a href="">
+    <div class="flex-1">
+        <img src="{% static 'Images/redbus.png' %}" alt="" class="redbus">
+        <h6>Flat 10% off</h6>
+    </div>
+</a>
+<a href="">
+    <div class="flex-1">
+        <img src="{% static 'Images/download.png' %}" alt="" class="irtc">
+        <h6>Flat 10% off</h6>
+    </div>
+</a>
+</div>
+</center>
+
+<center>
+    <div class="flex-container">
+    <a href="">
+        <div class="flex-1">
+            <img src="{% static 'Images/grab_logo.png' %}" alt="" class="grab">
+            <h6>30% off for all products</h6>
+        </div>
+    </a>
+    <a href="">
+        <div class="flex-1">
+            <img src="{% static 'Images/HT_logo.png' %}" alt="" class="HT">
+            <h6>10% discount</h6>
+        </div>
+    </a>
+    <a href="">
+        <div class="flex-1">
+            <img src="{% static 'Images/QR_logo.png' %}" alt="" class="QR">
+            <h6>Flat 10% off</h6>
+        </div>
+    </a>
+    <a href="">
+        <div class="flex-1">
+            <img src="{% static 'Images/yolo_bus.png' %}" alt="" class="yolobus">
+            <h6>Flat 10% off</h6>
+        </div>
+    </a>
+    </div>
+    </center>
+<footer class="footer">
+    <div class="foot-1">
+    <h6>Contact us on</h6>
+
+    </div>
+    <div class="foot-1">
+        <a href="">About us</a><br>
+        <a href="">Contact</a><br>
+        <a href="">Terms and conditions</a>
+    </div>
+    <div class="foot-1">
+        <h7>Jobs</h7><br>
+        <h7>Lorem ipsum dolor sit amet c</h7><br>
+        <h7>gzbank@gmail.com</h7>
+    </div>   
+</footer>
+</body>
+</html>

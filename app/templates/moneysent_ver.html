@@ -1,0 +1,171 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+<style>
+    header{
+        background-color: #36454F;
+        width: 100%;
+        height: 100px;
+        position: fixed;
+        
+    }
+    .logo{
+        width: 130px;
+        margin: 20px;
+    }
+.menu{
+    width: 50px;
+    margin-left: 10px;
+}
+.back{
+    padding-top: 200px;
+    width: 50px;
+    position: fixed;
+}
+.sidenav{
+    width: 0;
+    height: 100%;
+    background-image: linear-gradient(to right , #4568dc,#b06ab3);
+    z-index: 2;
+    overflow-x: hidden;
+    position: fixed;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+.sidenav a{
+    display: block;
+    padding: 8px 8px 14px 70px;
+    color: white;
+    text-decoration: none;
+    transition: 0.1s;
+}
+.sidenav .nav:hover{
+    background-color:grey;
+    
+}
+.sidenav .closebtn{
+    position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.sidenav a .nav-icon{
+    padding-right: 10px;
+}
+.profilepic{
+    width: 100px;
+    height: 100px;
+    border: solid white;
+    border-radius: 50%;
+}
+
+.flex-container{
+    padding-top: 190px;
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+}
+.flex-container-1{
+    padding-top: 100px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+}
+.flex-icons{
+    width: 100px;
+}
+.flex-1{
+    border:3px solid black;
+    border-radius: 30px;
+    margin: 10px 20px 0px 20px;
+    padding: 0px 20px 0px 20px;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+input{
+    width: 300px;
+}
+button{
+    background-color: #4568dc;
+    color: white;
+    border: none;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+}
+footer{
+    background-image: linear-gradient(to right , #4568dc,#b06ab3);
+    width: 100%;
+    height: 180px;
+    display: flex;  
+    flex-direction: row;
+    margin-top: 200px;
+}
+.foot-1{
+    padding-top: 70px;
+    
+    padding-left: 30px;
+    color: white;
+    text-decoration: none;
+}
+.balance{
+    padding-top: 200px;
+    font-size: 100px;
+}
+.illust{
+    width: 350px;
+    height: 350px;
+    position:absolute;
+    left: 200px;
+    bottom: 150px;
+}
+center{
+    padding-top: 200px;
+}
+input{
+    text-align: center;
+    width: 400px;
+    height: 60px;
+    font-size: 20px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    
+    <img src="{% static 'Images/Group 1.png' %}" alt="logo" class="logo" id="logo"> 
+</header>
+<a href="{% url 'backDashboard' %}"><img src="{% static 'Images/arrow_back_black_24dp.svg' %}" alt="back" class="back"></a>
+
+<center>
+<form action="{% url 'OBverified' %}" method="POST">
+{% csrf_token %}
+
+<input type="password" name="password" placeholder="Enter your pin" ><br><br>
+
+<button type="submit">Check user</button>
+</form>
+</center>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
+</body>
+</html>

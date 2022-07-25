@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../GZ Bank System/bootstrap.min.css">
+    <script src="../GZ Bank System/bootstrap.min.js"></script>
+</head>
+<style>
+header{
+    background-image: linear-gradient(to right , black,grey);
+    width: 100%;
+    height: 150px;
+    position: fixed;
+    z-index: 1;
+}
+.back{
+    padding-top: 200px;
+    width: 50px;
+    position: fixed;
+}
+.logo{
+    margin: 20px;
+}
+footer{
+    background-image: linear-gradient(to right,black,gray);
+    height:150px;
+    width: 100%;
+    height: 180px;
+    display: flex;  
+    flex-direction: row;
+}
+.foot-1{
+    padding-top: 50px;
+    padding-left: 30px;
+    color: white;
+    text-decoration: none;
+}
+.menu{
+    width: 50px;
+    margin-left: 10px;
+    
+}
+.sidenav{
+    width: 0;
+    height: 100%;
+    background-image: linear-gradient(to right , black,grey);
+    z-index: 2;
+    overflow-x: hidden;
+    position: fixed;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+.sidenav a{
+    display: block;
+    padding: 8px 8px 14px 70px;
+    color: white;
+    text-decoration: none;
+    transition: 0.1s;
+}
+.sidenav .nav:hover{
+    background-color:grey;
+    
+}
+.sidenav .closebtn{
+    position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+.sidenav a .nav-icon{
+    padding-right: 10px;
+}
+.profilepic{
+    width: 100px;
+    height: 100px;
+    border: solid white;
+    border-radius: 50%;
+}
+.slideimg{
+    width: 500px;
+    height: 300px;
+}
+
+.slideshow-container{
+    padding-top: 140px;
+}
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.flex-1{
+    width: 300px;
+    height: 150px;
+    text-align: center;
+    border-top: 3px grey solid;
+    border-left: 3px grey solid;
+    border-radius: 10px;
+}
+.Flipkart{
+    width: 100px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    
+}
+.amazon{
+    width: 100px;
+    padding-bottom: 30px;
+    padding-top: 40px;
+}
+.snapdeal{
+    width: 70px;
+    padding-bottom: 30px;
+    padding-top: 25px;
+}
+.myntra{
+    width: 100px;
+    padding-bottom: 15px;
+    padding-top: 10px;  
+}
+.alibaba{
+    width: 160px;
+    padding-bottom: 30px;
+    padding-top: 25px;
+}
+.nykaa{
+    width: 160px;
+    padding-bottom: 30px;
+    padding-top: 25px;
+}
+
+.lmg{
+    width: 100px;
+    padding-bottom: 20px;
+    padding-top: 25px;
+}
+a{
+    text-decoration: none;
+    color: black;
+    padding-left: 50px;
+}
+@media only screen and (max-width: 800px) {
+    .flex-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 50px;
+}
+    footer{
+    background-image: linear-gradient(to right,black,gray);
+    height:150px;
+    width: 100%;
+    height: 100%;
+    display: flex;  
+    flex-direction: column;
+}
+.slideimg{
+    width: 270px;
+    height: 200px;
+    position: relative;
+    right: 20px;
+}
+.flex-1{
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    border-top: 3px grey solid;
+    border-left: 3px grey solid;
+    border-radius: 10px;
+}
+a{
+    width: 300px;
+}
+}
+</style>
+<script>
+function openNav(){
+    document.getElementById("mySidenav").style.width="300px";
+    
+}
+function closeNav(){
+    document.getElementById("mySidenav").style.width="0px";
+}
+function first(){
+    document.getElementById("slideimage").src="../GZ Bank System/Images/myntra_shop.jfif";
+    document.getElementById("linkimg").href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjoqKWPoczxAhVTtpYKHQ6hAyMYABAAGgJ0bA&ae=2&ohost=www.google.com&cid=CAESQOD2RSrC-bzgVisBX4Gl5CexELZQm9_cdY1Enib83c59zRmn53LOlFWOORNZXxzDiQqoQK2FA1tNOjRf6DDgSIE&sig=AOD64_0h3IHWQ93X5SH-4l1_zb6S9P1CsA&q&adurl&ved=2ahUKEwiw2pyPoczxAhV8xzgGHWYbDEEQ0Qx6BAgCEAE";
+}
+function second(){
+    document.getElementById("slideimage").src="../GZ Bank System/Images/myntra-offers-1.jpg";
+    document.getElementById("linkimg").href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwio_p70oMzxAhXBtZYKHbkNCqoYABAAGgJ0bA&ae=2&ohost=www.google.com&cid=CAESQOD2ugXV-l3dnhOzYj5Ggv_Qwj2e82f8wn_MA7aqC_3mBkfQMtTckBR8oY8HjMnvVd9CpluIU9eSIGS43JG58PE&sig=AOD64_3J_wwcNsNKgXDWLuliF0mozUVALg&q&adurl&ved=2ahUKEwirlZb0oMzxAhXpwTgGHQZsBqUQ0Qx6BAgCEAE";
+}
+function third(){
+    document.getElementById("slideimage").src="../GZ Bank System/Images/amazon offer-1.jpg";
+    document.getElementById("linkimg").href="https://www.google.com/aclk?sa=L&ai=DChcSEwjo-qainszxAhXEwpYKHQZvAAEYABAAGgJ0bA&ae=2&sig=AOD64_1A3cennYAHTJKQEbFIbwiPJZv30A&q&adurl&ved=2ahUKEwiywZyinszxAhUET30KHV33ApoQ0Qx6BAgCEAE";
+}
+function four(){
+    document.getElementById("slideimage").src="../GZ Bank System/Images/myntra-offers.jpg";
+    document.getElementById("linkimg").href="https://www.visa.co.in/en_in/visa-offers-and-perks/myntra/144621";
+}
+setInterval(first,2000);
+setInterval(second,4000);
+setInterval(third,6000);
+setInterval(four,8000);
+</script>
+<body>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(1)" class="closebtn" onclick="closeNav()"><img src="../GZ Bank System/Images/close_white_24dp.svg" alt=""></a>
+    <a href="#"><img src="../GZ Bank System/Images/profile.jpg" alt="profile-pic" class="profilepic"></a>
+    <a href="#" class="nav"><img src="../GZ Bank System/Images/paid_white_24dp.svg" alt="" class="nav-icon">Deposits</a>
+    <a href="#" class="nav"><img src="../GZ Bank System/Images/loan.svg" alt="" class="nav-icon">Loans</a>
+    <a href="#" class="nav"><img src="../GZ Bank System/Images/card.svg" alt="" class="nav-icon">Cards</a>
+    <a href="#" class="nav"><img src="../GZ Bank System/Images/pay.svg" alt="" class="nav-icon">GZ pay</a>
+    <a href="#" class="nav"><img src="../GZ Bank System/Images/phone_in_talk_white_24dp.svg" alt="" class="nav-icon">Call us</a>
+    <a href="#" class="nav"><img src="../GZ Bank System/Images/logout_white_24dp.svg" alt="" class="nav-icon">Log-out</a>
+</div>
+<header>
+    <span onclick="openNav()"><img src="../GZ Bank System/Images/menu_white_24dp.svg" class="menu"></span>
+    <img src="../GZ Bank System/Images/Group 1.png" alt="logo" class="logo"> 
+</header>
+<a href="../GZ Bank System/Dashboard.html"><img src="../GZ Bank System/Images/arrow_back_black_24dp.svg" alt="back" class="back"></a>
+<center>
+<div class="slideshow-container">
+    <div class="mySlides">
+       
+        <a href="https://www.visa.co.in/en_in/visa-offers-and-perks/myntra/144621" target="_blank" id="linkimg"><img src="../GZ Bank System/Images/myntra-offers.jpg" class="slideimg" id="slideimage"></a>
+        
+    </div>
+</div>
+</center>
+<center>
+<div class="flex-container">
+<a href="">
+    <div class="flex-1">
+        <img src="../GZ Bank System/Images/flipkart_logo.png" alt="" class="Flipkart">
+        <h6>30% off for all products</h6>
+    </div>
+</a>
+<a href="">
+    <div class="flex-1">
+        <img src="../GZ Bank System/Images/amazon_logo.jfif" alt="" class="amazon">
+        <h6>10% discount</h6>
+    </div>
+</a>
+<a href="">
+    <div class="flex-1">
+        <img src="../GZ Bank System/Images/download (1).png" alt="" class="snapdeal">
+        <h6>Flat 10% off</h6>
+    </div>
+</a>
+<a href="">
+    <div class="flex-1">
+        <img src="../GZ Bank System/Images/myntra_logo.jfif" alt="" class="myntra">
+        <h6>Flat 10% off</h6>
+    </div>
+</a>
+</div>
+</center>
+
+<center>
+    <div class="flex-container">
+    <a href="">
+        <div class="flex-1">
+            <img src="../GZ Bank System/Images/alibaba_logo.png" alt="" class="alibaba">
+            <h6>30% off for all products</h6>
+        </div>
+    </a>
+    <a href="">
+        <div class="flex-1">
+            <img src="../GZ Bank System/Images/nykaa.jfif" alt="" class="nykaa">
+            <h6>10% discount</h6>
+        </div>
+    </a>
+    <a href="">
+        <div class="flex-1">
+            <img src="../GZ Bank System/Images/firstcry_logo.jfif" alt="" class="firstcry">
+            <h6>Flat 10% off</h6>
+        </div>
+    </a>
+    <a href="">
+        <div class="flex-1">
+            <img src="../GZ Bank System/Images/1mg_logo.png" alt="" class="lmg">
+            <h6>Flat 10% off</h6>
+        </div>
+    </a>
+    </div>
+    </center>
+<footer class="footer">
+    <div class="foot-1">
+    <h6>Contact us on</h6>
+
+    </div>
+    <div class="foot-1">
+        <a href="">About us</a><br>
+        <a href="">Contact</a><br>
+        <a href="">Terms and conditions</a>
+    </div>
+    <div class="foot-1">
+        <h7>Jobs</h7><br>
+        <h7>Lorem ipsum dolor sit amet c</h7><br>
+        <h7>gzbank@gmail.com</h7>
+    </div>   
+</footer>
+</body>
+</html>

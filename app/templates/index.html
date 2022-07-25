@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay for goods and shop online</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+<style>
+.group-1{
+ position: absolute;
+ bottom: 150px;
+}
+.icons{
+  width: 60px;
+}
+.p-2{
+  margin-left: 30px;
+  margin-right: 30px;
+}
+</style>
+<script>
+  document.getElementById('vid').play();
+</script>
+</head>
+<body style="font-family: Montserrat;font-size:15px">
+    <nav class="navbar navbar-expand-lg navbar-secondary bg-secondary" style="position: fixed;width:100%;background-color:black;z-index:1" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="{% static 'Images/logo-final.jpg' %}" alt="" width="60px" style="position: relative;"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav" style="font-family: Montserrat;">
+              <a class="nav-link active" aria-current="page" href="#" style="color: white;margin-top:6px;">Individual  <i class="fa-solid fa-angle-down"></i></a>
+              <a class="nav-link" href="#" style="color: white;margin-left:30px;margin-top:6px;">Business  <i class="fa-solid fa-angle-down"></i></a>
+              <a class="nav-link" href="#" style="color: white;margin-left:30px;margin-top:6px;">Partners  <i class="fa-solid fa-angle-down"></i></a>
+              <a class="nav-link " href="#" style="color: white;margin-left:30px;margin-top:6px;">Useful Info  <i class="fa-solid fa-angle-down"></i></a>
+              <div style="display: flex;flex-direction:row;float:right">
+              <a class="nav-link " href="/ATM_login" style="color: white;margin-left:40px"><button class="btn btn-primary" style="color: white;border-radius:17px;font-size:15px"><i class="fa-solid fa-right-to-bracket"></i> Log-in</button></a>
+              <a class="nav-link " style="color: white;"><button class="btn btn-primary" style="color: white;border-radius:17px;font-size:15px"><i class="fa-solid fa-circle-plus"></i> Create Account</button></a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <br><br>
+      <div style="margin-top:15px">
+      <video autoplay muted loop id="vid" width="100%" style="" >
+        <source src="{% static 'Images/Gz bank_2.mp4' %}" type="video/mp4">
+         Your browser does not support the video tag.
+      </video>
+    </div>
+    <div style="width:40%;margin-left:30px;" class="group-1">
+    <i><h2 style="font-family: 'Roboto Condensed', sans-serif;font-size:50px;color:3D72A4">Pay with GZ safe Bro ...🤙</h2></i><br>
+    <b><h5 style="color:white">Wherever you shop online worldwide, a GZBabk account lets you check out safer, faster and easier. That’s why we are accepted in over 200 markets and trusted by over 346 million accounts.​</h5></b><br>
+    <h3>Click here to</h3>
+    <a href="#head"><button class="" type="button" style="border-radius:0px;width:400px;height:50px;background-color:skyblue;border:none;margin:10px"><h5><i class="fa-solid fa-meteor"></i> Get started</h5></button>  </a>
+      
+       
+  </div>
+  <p style="text-align: center;font-size: 40px;" id="head">The safer, easier way to pay around the world.</p>
+  <br><br>
+  <div class="d-flex justify-content-center">
+    <div class="p-2 bd-highlight" style="text-align: center;width:250px">
+      <img src="{% static 'Images/encrypted.png' %}" alt="" class="icons">
+      <h5>180-Day Buyer Protection</h5><br>
+      <p style="text-align:center">Item not as described? You have our first-of-its-kind 180-day refund window to get a full refund on your purchase.</p>
+      <a href="" style="text-decoration: none;"><p style="text-align: center;">learn more</p></a>
+    </div>
+  <div class="p-2 bd-highlight" style="text-align: center;width:250px">
+    <img src="{% static 'Images/earth.png' %}" alt="" class="icons">
+    <h5>One Account for shopping worldwide​</h5><br>
+    <p style="text-align:center">Shop globally with one GZ account.​</p>
+    <a href="" style="text-decoration: none;"><p style="text-align: center;">learn more</p></a>
+
+  </div>
+  <div class="p-2 bd-highlight" style="text-align: center;width:250px">
+    <img src="{% static 'Images/fingerprint-scan.png' %}" alt="" class="icons">
+    <h5>Skip the Logins</h5><br>
+    <p style="text-align:center">Check out faster and easier with One Touch™ and you'll never need to enter your login details again.</p>
+    <a href="" style="text-decoration: none;"><p style="text-align: center;">learn more</p></a>
+
+  </div>
+  <div class="p-2 bd-highlight" style="text-align: center;width:250px">
+    <img src="{% static 'Images/lock.png' %}" alt="" class="icons">
+    <h5>Worry-free Shopping</h5><br>
+    <p style="text-align:center">Shop with ease and confidence. Your financial details are never shared, not even with the seller.</p>
+    <a href="" style="text-decoration: none;"><p style="text-align: center;">learn more</p></a>
+
+  </div>
+  </div>
+  <br><br>
+<div style="background-color:#e8f0f8;" class="d-flex justify-content-center">
+  <div class="d-flex flex-row bd-highlight mb-3" style="margin-top:60px">
+    <div class="p-2 bd-highlight">
+      <p style="font-size: 50px;">See how GZBank works.</p><br>
+      <p style="width: 400px;">Whether you're shopping or selling with GZBabk, we make it faster, safer and easier for everyone to shop or sell globally with confidence.</p>
+
+    </div>
+    <div class="p-2 bd-highlight">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/rquuf4XfwLA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+
+<div style="justify-content: center;background-color:#ececec;" class="d-flex justify-content-center">
+  <div class="d-flex flex-row bd-highlight mb-3" style="margin-top:60px;margin-left:150px">
+    <div class="p-2 bd-highlight">
+      <p style="font-size: 50px;">How GZBank works</p><br>
+      <p style="width: 400px;">It’s an easier, faster and safer way to pay online and on your mobile.</p>
+      <li style="font-size: 20px;">Sign up
+        It's free and only takes a few minutes</li>
+      <li style="font-size: 20px;">Link a credit / debit card
+        You only have to do it once</li>
+      <li style="font-size: 20px;">Pay with GZBabk at your favourite brands
+        Wherever you see the GZBabk button</li>
+      <li style="font-size: 20px;">Receive email receipt of your purchase
+        The seller will fulfil your order</li>
+        <br><br>
+        <p>This is only for representational purpose. The actual sign up requires you to provide other fields as well.</p>
+    </div>
+    <div class="p-2 bd-highlight">
+      <img src="{% static 'Images/how-pp-works-4.gif' %}" alt="">
+    </div>
+  </div>
+</div>
+<div style="text-align: center;background-color:#e8f0f8;">
+<br><br>
+<p style="font-size: 50px;">Join with us Today !</p><br>
+<button style="background-color: skyblue;border:none;width:270px;height:50px;border-radius:20px">Open 0 Blance account</button>
+<p>For more about Gzbank for your business or freelance needs,</p><br>
+<p>go to GZBank Business.</p>
+<br><br>
+</div>
+<br><br>
+<footer style="justify-content: center;margin-left:200px;margin-right:200px;color:rgb(119, 113, 113);font-size:13px">
+  <div class="d-flex  flex-row  bd-highlight mb-3">
+    <div class=" bd-highlight" style="padding-right: 10px;">Help</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Contact</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Fees</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Security</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Shop</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Feedback</div>
+  </div>
+  <hr>
+<div class="d-flex flex-row bd-highlight mb-3" style="width: 100%;">
+  <div class="d-flex flex-row bd-highlight mb-3" style="width: 100%;">
+    <div class=" bd-highlight" style="padding-right: 10px;">About</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Newsroom</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Jobs</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Sitemap</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Developers</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Partners</div>
+  </div>
+
+  <div class="d-flex flex-row bd-highlight mb-3" style="width: 100%;">
+    <div class=" bd-highlight" style="padding-right: 10px;">© 2021-2030</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Accessibility</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Privacy</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">CSR</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Annual Returns</div>
+    <div class=" bd-highlight" style="padding-right: 10px;">Legal</div>
+  </div>
+</div>
+<p>GZBabk Services in India are provided by GZBabk Payments Private Limited (CIN U74990MH2009PTC194653). Users are advised to read the terms and conditions carefully.</p><br>
+<p>When you visit or interact with our sites, services, applications, tools or messaging, we or our authorised service providers may use cookies, web beacons, and other similar technologies for storing information to help provide you with a better, faster and safer experience and for advertising purposes. Learn more here.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

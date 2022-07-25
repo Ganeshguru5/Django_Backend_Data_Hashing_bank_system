@@ -1,0 +1,449 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+.logo{
+    width: 100px;
+}
+.logo1{
+  width: 100px;
+}
+.container{
+    margin-left: 100px;
+}
+.send{
+  width: 55px;
+  background-color: #36454F;
+  padding: 10px 10px 10px 10px;
+  border-radius: 50%;
+  
+}
+.request{
+  width: 55px;
+  background-color: #36454F;
+  padding: 10px 10px 10px 10px;
+  border-radius: 50%;
+}
+.send-receive{
+  
+  position: absolute;
+  left: 800px;
+  bottom: 450px;
+}
+.sendanchor{
+  margin-right: 70px;
+}
+.flexes{
+  position: absolute;
+  left: 780px;
+  top:330px
+}
+input[type=radio] {
+  width: 30px;
+  height: 30px;
+}
+
+</style>
+<script>
+/* function bankpopup(){
+  document.getElementById("popup").style.display = "flex";
+  document.getElementById("body").style.opacity=0.3;
+}
+function popup2(){
+  document.getElementById("popup-2").style.display = "flex";
+  document.getElementById("body").style.opacity=0.3;
+}
+.popup{
+  z-index: 1;
+  position: absolute;
+  top: 10px;
+  left: 500px;
+  display: none;  
+}
+#popup-2{
+  z-index: 1;
+  position: absolute;
+  top: 10px;
+  left: 500px;
+  display: none;
+}
+#popup-3{
+  z-index: 1;
+  position: absolute;
+  top: 10px;
+  left: 500px;
+  display: none;
+}
+function popup3(){
+  document.getElementById("popup-3").style.display = "flex";
+  document.getElementById("body").style.opacity=0.3;
+} */
+function dateo() {
+var date = new Date();
+var year = date.getFullYear();
+var month = date.getMonth()+1;
+var day = date.getDate();
+if (month<10){
+  month = "0"+month
+}
+
+var today =(day +"-"+month+"-"+year)
+
+document.getElementById("Date").setAttribute("value",today)
+document.getElementById("Date2").setAttribute("value",today)
+
+console.log(value)
+}
+</script>
+</head>
+<body onload="dateo()">
+<div class="body" id="body">
+<nav class="navbar navbar-light" style="background-color: #36454F;" id="header">
+    
+        <div class="container-fluid">
+            <a class="navbar-brand"><img src="{% static 'Images/Group 1.png' %}" alt="logo" class="logo" id="logo"></a>
+        </div>
+    
+</nav><br>
+<div class="container">
+<h1 class="ml-0">Hello {{current_user.username}}👋 Here is your wallet status</h1>
+<br>
+<div class="card" style="width: 35rem;">
+    <div class="card-header">
+      💰 GZ Bank balance ! 
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">$ {{current_user.accountbalance}}</h3>
+      <p class="card-text">Available balance in your GZ bank account</p>
+      <button  class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Transfer money to bank</button>
+      <!-- <a href="" onclick="popup2()" class="btn btn-outline-secondary">Transfer money to bank</a> -->
+      <button  class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal3">Withdraw money from bank</button>
+      <!-- <a href="" class="btn btn-outline-secondary">Withdraw money from bank</a> -->
+    </div>
+  </div><br><br>
+  <div class="card" style="width: 35rem;">
+    <div class="card-header">
+     ⌛Recent Activity
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Account Number</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Date</th>
+                <th scope="col">Fee</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              {% for historysep in history %}
+              <tr>
+                <th scope="row">{{historysep.accnumber}}</th>
+                <td style="color: green;">{{historysep.amounttransfered}}</td>
+                <td>{{historysep.Date}}</td>
+                <td>{{historysep.fees}}</td>
+              </tr>
+              {%endfor%}
+            </tbody>
+          </table>
+    </div>
+  </div>
+  <div class="d-flex send-receive" >
+    <a href="{% url 'Sentmoney' %}" style="text-decoration: none;" class="sendanchor"><span style="text-align: center;"><img src="{% static 'Images/send (1).svg' %}" alt="" class="send"><p style="color: black;">Send</p></span></a>
+    <a href="" style="text-decoration: none;" class="sendanchor"><span style="text-align: center;"><img src="{% static 'Images/upload.svg' %}" alt="" class="request"><P style="color: black;">Request</P></span></a>
+    <a href="" style="text-decoration: none;" class="receiveanchor"><span style="text-align: center;"><img src="{% static 'Images/more-horizontal.svg' %}" alt="" class="request"><P style="color: black;">More</P></span></a>
+    
+  </div>
+
+</div>
+<div class="d-flex" style="margin-left: 100px;margin-top:50px;">
+  <img src="{% static 'Images/secure.svg' %}" alt="" class="" style="width: 170px;">
+  <h3 style="width: 250px;">Gz is most safer and easier way to pay</h3>
+</div><br><br>
+<div class="flexes">
+  
+<div class="card mb-1" style="width: 35rem;">
+  <div class="card-body">
+    <p>Add your bank account</p>
+    <div class="d-flex">
+    <img src="{% static 'Images/bank.svg' %}" alt="" style="width:50px;margin-right:30px;">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2"><i class="fas fa-link"></i> Link your Bank account</button>
+    </div>
+  </div>
+</div>
+<br>
+<h3>Linked Bank Accounts</h3>
+
+
+
+
+{% for linkedaccount in linked %}
+<!-- <div class="card w-75" style="border-left: none;border-right: none;border-top:none">
+  <div class="card-body">
+    <h5 class="card-title">{{linkedaccount.bank_name}}</h5>
+    <p class="card-text">Account NUmber :{{linkedaccount.linkedaccnumber}}</p>
+    <a href="#" class="btn btn-primary"><i class="material-icons">link_off</i> Dislink Account</a>
+    <hr>
+  </div>
+</div> -->
+<div class="card">
+  <div class="card-body">
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1" style="margin-right: 10px;"><i class="fa-solid fa-bank"></i></span>
+      <!-- <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> -->
+      <b>{{linkedaccount.bank_name}}</b>
+    </div>
+    <div class="d-flex flex-row bd-highlight mb-3">
+      <div class="p-2 bd-highlight"> Account Number : </div>
+      <div class="p-2 bd-highlight"><i> {{linkedaccount.linkedaccnumber}} </i></div>
+    </div>
+    <button type="button" class="btn btn btn-outline-secondary"><i class="fa-solid fa-link-slash"></i> Unlink Account</button>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+</div>
+
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" style="margin-top: 0px;margin-left:-200px" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-body">
+        <div class="modal-content">
+        <div class="card mx-auto popup" id="popup" style="width: 50rem;">
+  
+          <div class="card-header bg-secondary">
+              <img src="{% static 'Images/Group 1.png' %}" alt="logo" class="logo1" id="logo1">
+              <svg class="btn-close" data-bs-dismiss="modal" style= "color: white;width:20px;float:right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" class="svg-inline--fa fa-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"></path></svg>
+              
+            </div>
+          <div class="card-body">
+           <h4 >Link other bank accounts</h4>
+           <br>
+           <p>Please make sure the names on your bank account and GZbank account match , so that transfers can go through.Otherwise,there will be a Rs{{current_user.accountbalance}} fee if withdrawals to your bank account are returned tp GZBank</p>
+           <br> 
+           
+           <form action="{% url 'linkaccount' %}" method="post">
+               {% csrf_token %}
+              <h5>country of the Bank</h5>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="country" id="inlineRadio1" value="India">
+                <label class="form-check-label" for="inlineRadio1">India</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="country" id="inlineRadio2" value="Other country">
+                <label class="form-check-label" for="inlineRadio2">Other country</label>
+              </div>
+            
+              <br><br>
+              <p>Account Owner : {{current_user.nameonpassbook}}</p>
+              <a href="" style="text-decoration: none;">Switch another name</a>
+              <br><br>
+              
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="accounttype" id="inlineRadio3" value="Current Account">
+                <label class="form-check-label" for="inlineRadio3">Current Account</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="accounttype" id="inlineRadio4" value="Savings Account">
+                <label class="form-check-label" for="inlineRadio4">Savings Account</label>
+              </div>
+            
+              <br><br>
+              <div class="input-group flex-nowrap">
+                <input type="text" name="bank_name" class="form-control" placeholder="Bank name" aria-label="Username" aria-describedby="addon-wrapping">
+              </div><br>
+              <div class="input-group flex-nowrap">
+                <input type="text" name="bank_code" class="form-control" placeholder="Bank code" aria-label="Username" aria-describedby="addon-wrapping">
+              </div><br>
+              <div class="input-group flex-nowrap">
+                <input type="text" name="bank_location" class="form-control" placeholder="Bank location" aria-label="Username" aria-describedby="addon-wrapping">
+              </div><br>
+              <div class="input-group flex-nowrap">
+                <input type="text" name="branch_code" class="form-control" placeholder="Brach code" aria-label="Username" aria-describedby="addon-wrapping">
+              </div><br>
+              <div class="input-group flex-nowrap">
+                <input type="text" name="linkaccnumber" class="form-control" placeholder="Account number" aria-label="Username" aria-describedby="addon-wrapping">
+              </div><br>
+              <div class="input-group flex-nowrap" style="display:none">
+                <input type="text" name="accnumber" class="form-control"  aria-label="Username" maxlength="20" aria-describedby="addon-wrapping" value="{{current_user.accnumber}}">
+              </div><br>
+              <button type="submit" class="btn btn-primary" style="float: right;"><i class="fas fa-link"></i>Link Account</button>
+           </form>
+           
+          
+          </div>
+        </div>
+      </div>    
+      </div>
+      
+  </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="margin-top: -0px;margin-left:-200px" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-body">
+        <div class="modal-content">
+          <div class="card mx-auto" id="popup-2" style="width: 50rem;">
+              <div class="card-header bg-secondary">
+                  <img src="{% static 'Images/Group 1.png' %}" alt="logo" class="logo" id="logo">
+                  <a href="" class="btn-close" data-bs-dismiss="modal"><svg style="color: white;width:20px;float:right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" class="svg-inline--fa fa-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"></path></svg></a>
+            
+                </div>
+              <div class="card-body">
+               <h3 style="text-align: center;" >Transfer to bank</h3>
+               <br>
+               <h5>Instant <span style="font-size: 15px;">(instant fee apply)</span></h5>   
+               <p>process finished in minutes</p>
+               <hr>
+               <br>
+               <a href="" style="text-decoration: none;"><i class="fa-solid fa-circle-info"></i> Link an eligibe debit card or bank</a>
+              <hr>
+              <br>
+              <h5>Standard <span style="font-size: 15px;">(Free)</span></h5>
+              <p>Typically in one business day</p>
+               <hr>
+               <br> 
+               <form action="{% url 'transfertobank' %}" method="post">
+                   {% csrf_token %}
+                   <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Amount $</span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Enter the amount" name="amount">
+                  </div>
+                  <div class="form-check">
+                    {% for linkedaccount in linked %}
+                      <input class="form-check-input" type="radio" id="flexRadioDefault1" name="linkedaccnum" value='{{linkedaccount.linkedaccnumber}}'>
+                      <label class="form-check-label" for="flexRadioDefault1" style="margin-left:20px;">
+                          <div class="d-flex flex-row bd-highlight mb-3" >
+                              <img src="{% static 'Images/bankoo.svg' %}" alt="" style="width: 50px;margin">
+                              <!-- <div class="p-2 bd-highlight">USA Federal Savings Bank <p></p></div> -->
+                              <div class="p-2 bd-highlight">{{linkedaccount.bank_name}} <p>{{linkedaccount.linkedaccnumber}}</p></div>
+                            </div> 
+                      </label>
+                      <hr>
+                      {%endfor%}
+                      <div class="input-group mb-3">
+                        <input style="display: none;" type="text" value="{{current_user.accnumber}}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly placeholder="Enter the amount" name="accnumber">
+                      </div>
+                      <div class="input-group mb-3">
+                        <input style="display: none;" type="text" value="transfer" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly placeholder="Enter the amount" name="transactiontype">
+                      </div>
+                      <div class="input-group mb-3">
+                        <input style="display: none;" type="text" value="$30" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly placeholder="Enter the amount" name="fee">
+                      </div>
+                      <input type="text" id="Date" name="date" value=""   id="" required>
+                      <center>
+                      <button type="submit" class="btn btn-secondary">Next <i class="fa-solid fa-right-long"></i></button>
+                      </center>
+                  </div>
+               </form>
+               
+               <center>
+               <a href="" style="text-decoration:none;"><i class="fa-solid fa-circle-exclamation"></i> Dont see your banks or cards</i></a>
+              </center>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" style="margin-top: 0px;margin-left:-200px" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- <div class="modal-body"> 111 -->
+        <div class="card mx-auto" id="popup-3" style="width: 50rem;">
+          <div class="card-header bg-secondary">
+              <img src="{% static 'Images/Group 1.png' %}" alt="logo" class="logo" id="logo">
+              <a href="" class="btn-close" data-bs-dismiss="modal"><svg style="color: white;width:20px;float:right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" class="svg-inline--fa fa-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"></path></svg></a>
+        
+            </div>
+          <div class="card-body" >
+           <h3 style="text-align: center;" >Withdraw from bank</h3>
+           <br>
+           <h5>Instant <span style="font-size: 15px;">(instant fee apply)</span></h5>   
+           <p>process finished in minutes</p>
+           <hr>
+           <br>
+           <a href="" style="text-decoration: none;"><i class="fa-solid fa-circle-info"></i> Link an eligibe debit card or bank</a>
+          <hr>
+          <br>
+          <h5>Standard <span style="font-size: 15px;">(Free)</span></h5>
+          <p>Typically in one business day</p>
+           <hr>
+           <br> 
+           <form action="{% url 'withdraw' %}" method="post">
+               {% csrf_token %}
+               <div class="input-group mb-3">
+                <span class="input-group-text" id="inputGroup-sizing-default">Amount $</span>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Enter the amount" name="amount">
+              </div>
+              <div class="form-check">
+                {% for linkedaccount in linked %}
+                  <input class="form-check-input" type="radio" id="flexRadioDefault1"  name="linkedaccnum" value='{{linkedaccount.linkedaccnumber}}'>
+                  <!-- <label class="form-check-label" for="flexRadioDefault1" style="margin-left:20px;">
+                      <div class="d-flex flex-row bd-highlight mb-3" >
+                          <img src="{% static 'Images/bankoo.svg' %}" alt="" style="width: 50px;">
+                          
+                          <div class="p-2 bd-highlight">{{linkedaccount.bank_name}} <p>{{linkedaccount.linkedaccnumber}}</p></div>
+                        </div> 
+                  </label> -->
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1" style="margin-right: 10px;"><i class="fa-solid fa-bank"></i></span>
+                        <!-- <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> -->
+                        <b>{{linkedaccount.bank_name}}</b>
+                      </div>
+                      <div class="d-flex flex-row bd-highlight mb-3">
+                        <div class="p-2 bd-highlight"> Account Number : </div>
+                        <div class="p-2 bd-highlight"><i> {{linkedaccount.linkedaccnumber}} </i></div>
+                      </div>
+                    </div>
+                  </div>
+                  {%endfor%}
+                  <div class="input-group mb-3">
+                    <input style="display: none;" type="text" value="{{current_user.accnumber}}" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly placeholder="Enter the amount" name="accnumber">
+                  </div>
+                  <div class="input-group mb-3">
+                    <input style="display: none;" type="text" value="Withdrawal" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly placeholder="Enter the amount" name="transactiontype">
+                  </div>
+                  <div class="input-group mb-3">
+                    <input style="display: none;" type="text" value="No fee" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" readonly placeholder="Enter the amount" name="fee">
+                  </div>
+                  <input type="text" id="Date2" name="date" value=""   id="" required>
+                  <center>
+                  <button type="submit" class="btn btn-secondary">Withdraw Amount <i class="fa-solid fa-right-long"></i></button>
+                  </center>
+              </div>
+           </form>
+           
+           <center>
+           <a href="" style="text-decoration:none;"><i class="fa-solid fa-circle-exclamation"></i> Dont see your banks or cards</i></a>
+          </center>
+          </div>
+        </div>
+      </div>   
+      <!-- </div> 1111 -->
+      
+  </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+
+</body>
+</html>

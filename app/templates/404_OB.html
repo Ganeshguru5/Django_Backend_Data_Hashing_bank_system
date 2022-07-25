@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+</head>
+<body>
+<center>
+<img src="{% static 'Images/404_Error.gif' %}" alt=""> 
+
+</center>  
+<h3 style="text-align: center;">sorry friend you are not register for online banking <a href="{% url 'backDashboard' %}">back to homepage</a></h3>
+</body>
+</html>

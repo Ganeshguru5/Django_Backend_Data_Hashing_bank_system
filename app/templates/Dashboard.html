@@ -1,0 +1,316 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GZB Dahboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+<style>
+
+.left{
+    display: flex;
+    flex-direction: row;
+}
+#ele{
+    margin: 20px;
+}
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+#ele1{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.right{
+    display: flex;
+    flex-direction: row;
+}
+.section1,.section2{
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+    margin-top: 40px;
+    background-color: white;
+    border-radius: 20px;
+    width: 700px;
+}
+.section3{
+    margin-left: 50px;
+    margin-top: 40px;
+    
+    background-color: white;
+    border-radius: 20px;
+    width: 700px;
+    overflow: hidden;
+    height: 600px;
+}
+.section4{
+    margin-left: 50px;
+    margin-top: 40px;
+    
+    background-color: white;
+    border-radius: 20px;
+    width: 700px;
+    overflow: hidden;
+    height: 600px;
+}
+.section2{
+    background-image: url("{% static 'Images/bgcard.jpg' %}");
+}
+.row1,.row2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.sec11,.sec12{
+    margin-left: 40px;
+    margin-top: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+.sec12{
+    padding-left: 60px;
+}
+#transmon,#linkacc{
+   cursor: auto;
+   border: none;
+   background-color: #9597a9;
+   width: 140px;
+   height: 50px;
+   color: white;
+   font-family:Montserrat ;
+   border-radius: 10px;
+}
+#def{
+    cursor: auto;
+    border: none;
+    background-color: #9597a9;
+    width: 140px;
+    height: 50px;
+    color: white;
+    font-family:Montserrat ;
+    border-radius: 10px;
+    width: 200px;
+ }
+#transmon{
+    margin-right: 20px;
+}
+.buttons1{
+    display: flex;
+    flex-direction: row;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 40px;
+    margin-left: 15px;
+    width: 550px;
+    
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 30px;
+    
+  }
+  td{
+    padding-bottom: 30px;
+  }
+  #donutchart{
+      position: relative;
+      right: 100px;
+      bottom: 70px;
+  }
+  .midrow{
+      display: flex;
+      flex-direction: row;
+      
+ }
+ .print{
+     border: none;
+     color: white;
+     border-radius: 4px;
+     background-color: rgb(10, 175, 10);
+     font-family: 'Montserrat';
+     height:40px
+ }
+  
+</style>
+<body style="font-family: 'Montserrat', sans-serif;background-color:#f2f3f7">
+
+<div class="nav-bar" style="font-family:Montserrat">
+    <div class="left">
+        <img  src="{% static 'Images/Logo-removebg-preview.png' %}" alt="" width="60px">
+        <p id="ele">My Account</p>
+        <a href="#" style="text-decoration: none;"><p id="ele" style="color: #9597a9;">Transactions</p></a>
+        <p id="ele" style="color: #9597a9;">Cards</p>
+        <p id="ele" style="color: #9597a9;">Offers</p>
+        <p id="ele" style="color: #9597a9;">Investments</p>
+    </div>
+    <div class="right">
+        <ion-icon name="settings-outline" id="ele1"></ion-icon>
+        <ion-icon name="mail-unread-outline" id="ele1"></ion-icon>
+        <ion-icon name="notifications-outline" id="ele1"></ion-icon>
+        <p id="ele1">Ganeshguru</p>
+        <a href="{% url 'Logout' %}"><ion-icon name="power-outline" id="ele1"></ion-icon></a>
+    </div>
+</div>
+
+<p style="margin-left: 50px;font-size:34px">Welcome Back Ganeshguru 🤩</p>
+
+<div class="row1">
+    <div class="section1">
+        <div class="sec11">
+            <p style="font-size: 13px; color:#9496a9">Main account</p>
+            <p>GZ Savings Account</p>
+            <p style="font-size: 15px;color:#9496a9">1234 1234 1234 1234</p>
+            <br>
+            <div class="buttons1">
+                <a href="/obverified"><button id="transmon">Transfer Money</button></a>
+                
+                <a href="{% url 'linkaccpage' %}"><button id="linkacc">Link Accounts</button></a>
+            </div>
+        </div>
+        <div class="sec12">
+            <P style="font-size: 13px; color:#9496a9">Available Funds</P>
+            <p style="font-size: 30px;font-weight:190px">{{current_user.accountbalance}} <span style="font-size: 15px;">$</span> </p>
+            <p style="font-size: 11px;"><i> <b> "A wise person should have money in their head, but not in their heart."</b></i> </p>
+            <p style="font-size: 11px;">--Jonathan Swift</p>
+        </div>
+    </div>
+    <div class="section2">
+        <div class="sec11">
+            <p style="color: white;">Define standing orders</p>
+        
+        <p style="font-size: 13px;color:#9496a9">We help you remember about recurring payments for the fixed price . Define once standing 
+            order and bank will take care of your regular transfer
+        </p><br>
+        <button id="def">Define Standing Order</button>
+        </div>
+        <div class="sec12">
+            <img src="{% static 'Images/calendar.png' %}" width="150px" alt="">
+        </div>
+    </div>
+</div>
+<div style="font-size: 20px;margin-left: 50px;">
+<p>Linked accouts<ion-icon name="link-outline" style="font-size: 20px"></ion-icon></p><br>
+<div class="midrow">
+    {% for linkedaccount in linked %}
+        <div class="" style="background-color: white;width:320px;border-radius:20px;margin-right:50px">
+            <div class="linkedacc" style="display: flex;flex-direction:row;margin:20px">
+                <div>
+                    <p style="font-size: 15px;">{{linkedaccount.bank_name}}</p>
+                    <p style="font-size: 13px;">{{linkedaccount.linkedaccnumber}} </p>
+                    <br>
+                    <form action="/withdrawpage" method="POST">
+                    {% csrf_token %}
+                    <div style="display: flex;flex-direction:row">
+                    <input type="text" style="display: none;" name="linker" id="" value="{{linkedaccount.linkedaccnumber}}">
+                    <button type="submit" style="background-color: green;color:white;border:none;width:90px;height:30px;border-radius:10px;font-family:Montserrat;font-size:10px;margin-right:10px">With draw Amount</button>
+                    <button style="background-color: red;color:white;border:none;width:90px;height:30px;border-radius:10px;font-family:Montserrat;font-size:10px">Break link</button>
+                </form>
+                </div>                </div>
+                <div style="display: flex;flex-direction:column;margin-left:10px">
+                    <img src="{% static 'Images/Logo-removebg-preview.png' %}" alt="" style="width: 90px;">
+                    <ion-icon name="resize-outline" style="margin-left:50px"></ion-icon>
+                </div>
+            </div>
+            
+            </div>
+    {% endfor %}
+
+</div>
+</div>
+<div class="row2">
+    
+    <div class="section3">
+        <p  style="margin: 40px;">Latest transactions</p>
+        <table style="margin: auto;">
+            <tr>
+                <th>Accnumber</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>fee</th>
+                <th>Print</th>
+            </tr>
+            {% for historysep in history %}
+            <tr>
+                <td>{{historysep.accnumber}}</td>
+                <td>{{historysep.amounttransfered}}</td>
+                <td>{{historysep.Date}}</td>
+                <td>{{historysep.fees}}</td>
+                <td><button class="print">Print Receipt</button></td>
+            </tr>
+            {%endfor%}
+            
+        </table>
+        <a href="" style="text-decoration: none;"><p style="text-align: center;color:blue"><b>See more</b></p></a>
+    </div>
+    <div class="section4" style="overflow: hidden;">
+        
+        <div class="sec11" >
+            <p>All Expenses</p>
+            <br>
+            <div style="display: flex;flex-direction:row">
+                <div style="margin-right: 180px;">
+                    <p>Daily</p>
+                    <p>275 $</p>
+                </div>
+                <div style="margin-right: 180px;">
+                    <p>Daily</p>
+                    <p>1545 $</p>
+                </div>
+                <div>
+                    <p>Daily</p>
+                    <p>8200 $</p>
+                </div>
+            </div>
+            <hr>
+            <div class="sec1">
+                <p>Last Month</p>
+                <div id="donutchart" style="width: 900px; height: 500px;"></div>
+            </div>
+    </div>
+    
+</div>
+</div>
+<br>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['Work',     11],
+          ['Eat',      2],
+          ['Commute',  2],
+          ['Watch TV', 2],
+          ['Sleep',    7]
+        ]);
+
+        var options = {
+            title:'Last month',
+          pieHole: 0.6,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

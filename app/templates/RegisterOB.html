@@ -1,0 +1,72 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+<style>
+header{
+    background-image: linear-gradient(to right , black,grey);
+    width: 100%;
+    height: 150px;
+    position: fixed;
+    z-index: 1;
+}
+footer{
+    background-image: linear-gradient(to right,black,gray);
+    height:150px;
+    width: 100%;
+    height: 180px;
+    display: flex;  
+    flex-direction: row;
+}
+.foot-1{
+    padding-top: 50px;
+    padding-left: 30px;
+    color: white;
+    text-decoration: none;
+}
+.logo{
+    margin: 20px;
+}
+.back{
+    padding-top: 200px;
+    width: 50px;
+}
+@media only screen and (max-width: 800px) {
+    footer{
+    background-image: linear-gradient(to right,black,gray);
+    height:150px;
+    width: 100%;
+    height: 100%;
+    display: flex;  
+    flex-direction: column;
+}
+}
+</style>  
+</head>
+<body>
+<header>
+    <img src="{% static 'Images/Group 1.png' %}" alt="logo" class="logo"> 
+</header>
+<a href="{% url 'OB_Login' %}"><img src="{% static 'Images/arrow_back_black_24dp.svg' %}" alt="back" class="back"></a>
+
+<footer class="footer">
+    <div class="foot-1">
+    <h6>Contact us on</h6>
+
+    </div>
+    <div class="foot-1">
+        <a href="">About us</a><br>
+        <a href="">Contact</a><br>
+        <a href="">Terms and conditions</a>
+    </div>
+    <div class="foot-1">
+        <h7>Jobs</h7><br>
+        <h7>Lorem ipsum dolor sit amet c</h7><br>
+        <h7>gzbank@gmail.com</h7>
+    </div>   
+</footer>
+</body>
+</html>
